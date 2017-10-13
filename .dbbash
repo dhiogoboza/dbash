@@ -1,16 +1,16 @@
 #!/bin/bash
-
-# **************************************************
-# * Custom bash for Ubuntu                         *
-# * System: Ubuntu 16.04 – Xenial Xerus            *
-# * local: /home/user/.dbbash                      *
-# * Install:                                       *
-# * Add source .dbbash at end of /home/user/.basrc *
-# *                                                *
-# * Author: Dhiogo Boza                            *
-# * E-Mail: dhiogoboza@gmail.com                   *
-# * Date: 2017-10-13                               *
-# **************************************************
+# *******************************************************
+# * Custom bash for Ubuntu                              *
+# * System: Ubuntu 16.04 – Xenial Xerus                 *
+# * local: /home/user/.dbbash                           *
+# * Install:                                            *
+# * Add "source .dbbash" at end of /home/user/.bashrc   *
+# *                                                     *
+# * Author: Dhiogo Boza                                 *
+# * E-Mail: dhiogoboza@gmail.com                        *
+# * Date: 2017-10-13                                    *
+# * Available at: https://github.com/dhiogoboza/dbbash  *
+# *******************************************************
 # ========================================================================
 # Adaptado de Thiago Nalli Valentim (thiago.nalli@gmail.com) - 2012-05-24 
 # URL: http://gnu2all.blogspot.com.br/2011/10/arch-linux-bashrc.html
