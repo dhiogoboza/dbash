@@ -1,0 +1,44 @@
+#!/bin/bash
+
+## Enable color to ls and other aliases
+## Check if /usr/bin/dircolors exists
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+     
+    ## Aliases (apelidos) para comandos
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias svnm='svn status | grep ^M'
+    alias gitrcount='git rev-list HEAD --count'
+fi
+ 
+## Misc aliases
+ 
+# Edit sources.list
+alias lists='sudo vim /etc/apt/sources.list'
+ 
+# Update apt-get
+alias upd='sudo apt-get update'
+
+# apt-get repair
+alias aptrepair='sudo apt-get -f install'
+ 
+# Dpkg repair
+alias dpkgrepair='sudo dpkg --configure -a'
+ 
+# ping google
+alias google='ping -t 3 www.google.com.br'
+
+alias hm="cd $HOME"
+alias ..='cd ..'
+alias l='ls -lhF'
+alias opn='gnome-open'
+alias cle='clear && ls -hlF'
+alias inst='sudo apt-get install'
+
+if [ -f ~/.customaliases ]; then
+    source ~/.customaliases
+fi

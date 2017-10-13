@@ -1,0 +1,104 @@
+#!/bin/bash
+
+# **************************************************
+# * Custom bash for Ubuntu                         *
+# * System: Ubuntu 16.04 – Xenial Xerus            *
+# * local: /home/user/.dbbash                      *
+# * Install:                                       *
+# * Add source .dbbash at end of /home/user/.basrc *
+# *                                                *
+# * Author: Dhiogo Boza                            *
+# * E-Mail: dhiogoboza@gmail.com                   *
+# * Date: 2017-10-13                               *
+# **************************************************
+# ========================================================================
+# Adaptado de Thiago Nalli Valentim (thiago.nalli@gmail.com) - 2012-05-24 
+# URL: http://gnu2all.blogspot.com.br/2011/10/arch-linux-bashrc.html
+# ========================================================================
+# Adaptado do original de Edinaldo P. Silva para Arch Linux
+# URL: http://gnu2all.blogspot.com.br/2011/10/arch-linux-bashrc.html
+# ========================================================================
+
+#===========================================
+# Colors
+#===========================================
+NONE="\[\033[0m\]" # Clear colors
+ 
+## Colors
+K="\033[0;30m" # Black
+R="\033[0;31m" # Red
+G="\033[0;32m" # Green
+Y="\033[0;33m" # Yellow
+B="\033[0;34m" # Blue
+M="\033[0;35m" # Magenta
+C="\033[0;36m" # Cyan
+W="\033[0;37m" # White
+ 
+## Bold with colors
+BK="\033[1;30m" # Bold+Black
+BR="\033[1;31m" # Bold+Red
+BG="\033[1;32m" # Bold+Green
+BY="\033[1;33m" # Bold+Yellow
+BB="\033[1;34m" # Bold+Blue
+BM="\033[1;35m" # Bold+Magenta
+BC="\033[1;36m" # Bold+Cyan
+BW="\033[1;37m" # Bold+White
+ 
+## Backgroud color
+BGK="\033[40m" # Black (Preto)
+BGR="\033[41m" # Red (Vermelho)
+BGG="\033[42m" # Green (Verde)
+BGY="\033[43m" # Yellow (Amarelo)
+BGB="\033[44m" # Blue (Azul)
+BGM="\033[45m" # Magenta (Vermelho Claro)
+BGC="\033[46m" # Cyan (Ciano - Azul Claro)
+BGW="\033[47m" # White (Branco)
+ 
+## Special chars
+CLOCK="\u231A"
+ARROW="\u2192"
+ 
+#=============================================
+# PS1 functions
+#=============================================
+
+arrow() {
+	if [ "$?" = "0" ]; then
+	    #\033[1;32m
+		echo -e $BG""$ARROW" "
+	else
+		echo -e $BR""$ARROW" "
+	fi
+}
+
+git_branch() {
+	local str=""
+	local status=$(git branch 2>/dev/null)
+	if [[ -n  $status ]]; then
+		echo -e -n "\033[0;37m on\033[0;35m \u2387\u0020 $(git branch | grep \* | awk '{print $NF}')"
+	fi
+	status=$(git status --porcelain --untracked-files=no 2>/dev/null | tail -n1)
+	if [[ -n $status ]]; then
+		echo -n -e ""$BR"!\033[0m"
+	fi
+}
+
+clock_icon() {
+	echo -e $CLOCK
+}
+
+#=============================================
+# PS1
+#=============================================
+
+#PS1='\n$(arrow)${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;32m\]\w\[\033[00m\]$(git_branch) '"$W"'⌚ \[\033[1;31m\]\t\[\033[00m\]\n'"$BW"'\$ \[\e]0;\h:\w\a\]'"$NONE"
+
+PS1='\n$(arrow)'"$BG"'\w$(git_branch) '"$W"'$(clock_icon) '"$BR"'\t\n'"$BW"'\$ \[\e]0;\h:\w\a\]'"$NONE"
+
+#=============================================
+# Load files
+#=============================================
+
+source ~/.dbbashaliases
+source ~/.dbbashfunctions
+

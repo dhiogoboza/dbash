@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# function to find files with content with or without extension
+# Usage: find-by-content pattern [files extension]
+function find-by-content(){
+    if [[ $# -eq 2 ]]; then
+        find . -name "*.$2" -exec grep -i "$1" {} \; -print
+    else
+        grep -rnw '.' -e "$1"
+    fi
+}
+
+# function to set terminal title
+function set-title(){
+  if [[ -z "$ORIG" ]]; then
+    ORIG=$PS1
+  fi
+  TITLE="\[\e]2;$*\a\]"
+  PS1=${ORIG}${TITLE}
+}
+
+# function to find pattern in pdf files
+# require pdfgrep (sudo apt install pdfgrep)
+function find-pdf(){
+    pdfgrep -R "$1" ./
+}
+
+# function to diff file to svn repository
+function diff-to-base() {
+  svn diff --diff-cmd='meld' -rHEAD $1
+}
+
+# function to disable ipv6
+function disable-ipv6() {
+    sudo sysctl -p
+}
+
+if [ -f ~/.customfunctions ]; then
+    source ~/.customfunctions
+fi
