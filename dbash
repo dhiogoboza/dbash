@@ -93,7 +93,7 @@ clock_icon() {
 
 #PS1='\n$(arrow)${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;32m\]\w\[\033[00m\]$(git_branch) '"$W"'⌚ \[\033[1;31m\]\t\[\033[00m\]\n'"$BW"'\$ \[\e]0;\h:\w\a\]'"$NONE"
 
-PS1='\n$(arrow)'"$BG"'\w$(git_branch) '"$W"'$(clock_icon) '"$BR"'\t\n'"$BW"'\$ \[\e]0;\h:\w\a\]'"$NONE"
+PS1='\n$(arrow)\['"$BG"'\]\w$(git_branch) \['"$W"'\]$(clock_icon) \['"$BR"'\]\t\n\['"$BW"'\]\$ \[\e]0;\h:\w\a\]'"$NONE"
 
 #=============================================
 # Load files
