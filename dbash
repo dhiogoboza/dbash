@@ -99,6 +99,6 @@ PS1='\n$(arrow)'"$BG"'\w$(git_branch) '"$W"'$(clock_icon) '"$BR"'\t\n'"$BW"'\$ \
 # Load files
 #=============================================
 
-source ~/.dbbashaliases
-source ~/.dbbashfunctions
+source ~/.dbashaliases
+source ~/.dbashfunctions
 

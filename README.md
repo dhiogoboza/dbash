@@ -1,22 +1,27 @@
 # Custom bash for Ubuntu
 
-Files with customized colors and format to bash
+Files with customized colors and format to bash.
 
 ## Install
 
-1. Put the nexy files in your **home** folder:
-* .customaliases
-* .customfunctions
-* .dbbash
-* .dbbashaliases
-* .dbbashfunctions
+Just type `./install.sh`
+
+The script will make:
+
+1. Put the next files in your **home** folder:
+* customaliases -> .customaliases
+* customfunctions -> .customfunctions
+* dbash -> .dbash
+* dbashaliases -> .dbashaliases
+* dbashfunctions -> .dbashfunctions
 
 2. Add the next line at the end of **$HOME/.bashrc** file:
+
 ```
-source ~/.dbbash
+source ~/.dbash
 ```
 
-## Costomize
+## Customize
 
-1. Add your aliases at **$HOME/.customaliases** file
-2. Add your functions at **$HOME/.customfunctions** file
+1. Add your aliases at **.customaliases** file
+2. Add your functions at **.customfunctions** file
