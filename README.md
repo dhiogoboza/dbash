@@ -4,7 +4,7 @@ Files with customized colors and format to bash.
 
 ## Install
 
-Just type `./install.sh`
+Just type `source install.sh`
 
 The script will make:
 

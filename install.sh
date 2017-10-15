@@ -16,3 +16,5 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Successfully installed!"
+
+source ~/.dbash
