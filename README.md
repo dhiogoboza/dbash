@@ -1,4 +1,4 @@
-# Custom bash for Ubuntu
+# DBash - Bash customization
 
 Files with customized colors and format to bash.
 
@@ -15,7 +15,7 @@ The script will make:
 * dbashaliases -> .dbashaliases
 * dbashfunctions -> .dbashfunctions
 
-2. Add the next line at the end of **$HOME/.bashrc** file:
+2. Add the next line at the end of **/home/user/.bashrc** file:
 
 ```
 source ~/.dbash
@@ -25,3 +25,7 @@ source ~/.dbash
 
 1. Add your aliases at **.customaliases** file
 2. Add your functions at **.customfunctions** file
+
+## Screenshots
+
+![Picture 1](screenshots/picture01.png "DBash")
