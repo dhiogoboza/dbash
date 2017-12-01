@@ -6,6 +6,13 @@ cmdignore[htop]=1
 cmdignore[tmux]=1
 cmdignore[top]=1
 cmdignore[vim]=1
+cmdignore[git]=1
+cmdignore[kermit]=1
+cmdignore[java]=1
+
+gitsubcmd[commit]=1
+gitsubcmd[difftool]=1
+gitsubcmd[mergetool]=1
 
 preexec() {
 	cmd=$1
@@ -20,14 +27,23 @@ precmd() {
 		return
 	fi
 	if [ "x${cmdignore[$cmd_basename]}" == "x1" ]; then
-		return
+		if [ "x${cmd_basename}" == "xgit" ]; then
+			myArray=($cmd)
+			if [ "x${gitsubcmd[${myArray[1]}]}" == "x1" ]; then
+				unset myArray
+				return
+			fi
+		else
+			return
+		fi
 	fi
 	if [ $retval -gt 0 ]; then
 		cmdstat="with warning"
+		urgency="critical"
 	else
 		cmdstat="successfully"
+		urgency="normal"
 	fi
-	urgency="critical"
 	DIFF=`expr ${cmd_end} - ${cmd_start}`
 	if [ $DIFF -gt 10 ]; then
 		if [ ! -z $SSH_TTY ]; then
