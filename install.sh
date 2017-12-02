@@ -1,8 +1,14 @@
 #!/bin/bash
 
 echo "Copying files..."
-cp customaliases ~/.customaliases
-cp customfunctions ~/.customfunctions
+if [ ! -f ~/.customfunctions ]; then
+    cp customaliases ~/.customaliases
+fi
+
+if [ ! -f ~/.customfunctions ]; then
+    cp customfunctions ~/.customfunctions
+fi
+
 cp dbash ~/.dbash
 cp dbashaliases ~/.dbashaliases
 cp dbashfunctions ~/.dbashfunctions
