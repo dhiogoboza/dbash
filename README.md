@@ -14,6 +14,8 @@ The script will make:
 * dbash -> .dbash
 * dbashaliases -> .dbashaliases
 * dbashfunctions -> .dbashfunctions
+* bash_preexec -> .bash_preexec
+* dbashnotify -> .dbashnotify
 
 2. Add the next line at the end of **/home/user/.bashrc** file:
 
@@ -23,8 +25,8 @@ source ~/.dbash
 
 ## Customize
 
-1. Add your aliases at **.customaliases** file
-2. Add your functions at **.customfunctions** file
+1. Add your aliases at **~/.customaliases** file
+2. Add your functions at **~/.customfunctions** file
 
 ## Screenshots
 
