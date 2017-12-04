@@ -1,18 +1,14 @@
 #!/bin/bash
 
-declare -A cmdignore
+declare -A cmdmonitory
+declare -A gitsubcmd
 
-cmdignore[htop]=1
-cmdignore[tmux]=1
-cmdignore[top]=1
-cmdignore[vim]=1
-cmdignore[git]=1
-cmdignore[kermit]=1
-cmdignore[java]=1
+cmdmonitory[make]=1
+cmdmonitory[ninja]=1
+cmdmonitory[git]=1
 
-gitsubcmd[commit]=1
-gitsubcmd[difftool]=1
-gitsubcmd[mergetool]=1
+gitsubcmd[push]=1
+gitsubcmd[pull]=1
 
 preexec() {
 	cmd=$1
@@ -26,16 +22,17 @@ precmd() {
 	if [ -z "$cmd" ] ; then
 		return
 	fi
-	if [ "x${cmdignore[$cmd_basename]}" == "x1" ]; then
+	if [ "x${cmdmonitory[$cmd_basename]}" == "x1" ]; then
 		if [ "x${cmd_basename}" == "xgit" ]; then
 			myArray=($cmd)
 			if [ "x${gitsubcmd[${myArray[1]}]}" == "x1" ]; then
 				unset myArray
+			else
 				return
 			fi
-		else
-			return
 		fi
+	else
+		return
 	fi
 	if [ $retval -gt 0 ]; then
 		cmdstat="with warning"
