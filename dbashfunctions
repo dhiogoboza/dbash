@@ -35,6 +35,12 @@ function disable-ipv6() {
     sudo sysctl -p
 }
 
+# 
+function imgdiff() {
+    # dependency: imagemagick
+    compare $2 $1 png:- | montage -geometry +4+4 $2 - $1 png:- | display -title "$1" -
+}
+
 if [ -f ~/.customfunctions ]; then
     source ~/.customfunctions
 fi

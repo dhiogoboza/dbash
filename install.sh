@@ -15,11 +15,10 @@ cp dbashfunctions ~/.dbashfunctions
 cp bash_preexec ~/.bash_preexec
 cp dbashnotify ~/.dbashnotify
 
-grep -rnw ~/.bashrc -e "source ~/.dbash"
+grep -rnw ~/.bashrc -e "source ~/.dbash" > /dev/null
 
 if [ $? -ne 0 ]; then
     echo "Adding line in ~/.bashrc"
-    
     echo "source ~/.dbash" >> ~/.bashrc
 fi
 
