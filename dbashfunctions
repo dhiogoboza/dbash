@@ -38,7 +38,16 @@ function disable-ipv6() {
 # 
 function imgdiff() {
     # dependency: imagemagick
-    compare $2 $1 png:- | montage -geometry +4+4 $2 - $1 png:- | display -title "$1" -
+    DIMENSION="$(xdpyinfo | awk '/dimensions:/ { print $2; exit }')"
+    DIMS=(${DIMENSION//x/ })
+
+    WIDTH=${DIMS[0]}
+    HEIGHT=${DIMS[1]}
+
+    WIDTH=$(($WIDTH * 9 / 10))
+    HEIGHT=$(($HEIGHT * 9 / 10))
+
+    compare $2 $1 png:- | montage -geometry +4+4 $2 - $1 png:- | display -resize ${WIDTH}x${HEIGHT} -title "$1" -
 }
 
 if [ -f ~/.customfunctions ]; then
