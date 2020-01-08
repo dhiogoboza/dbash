@@ -9,6 +9,10 @@ if [ ! -f ~/.customfunctions ]; then
     cp customfunctions ~/.customfunctions
 fi
 
+if [ ! -f ~/.inputrc ]; then
+    cp inputrc ~/.inputrc
+fi
+
 cp dbash ~/.dbash
 cp dbashaliases ~/.dbashaliases
 cp dbashfunctions ~/.dbashfunctions
