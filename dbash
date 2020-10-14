@@ -101,5 +101,3 @@ PS1='\n$(arrow)\['"$BG"'\]\w$(git_branch) \['"$W"'\]$(clock_icon) \['"$BR"'\]\t\
 
 source ~/.dbashaliases
 source ~/.dbashfunctions
-source ~/.bash_preexec
-source ~/.dbashnotify

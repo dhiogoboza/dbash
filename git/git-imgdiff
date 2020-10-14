@@ -1,0 +1,27 @@
+#!/bin/bash
+
+DIMENSION="$(xdpyinfo | awk '/dimensions:/ { print $2; exit }')"
+DIMS=(${DIMENSION//x/ })
+
+WIDTH=${DIMS[0]}
+HEIGHT=${DIMS[1]}
+
+WIDTH=$(($WIDTH * 9 / 10))
+HEIGHT=$(($HEIGHT * 9 / 10))
+
+compare -metric AE $2 $1 /dev/null > /dev/null 2>&1
+RESULT=$?
+
+# sudo apt install yad
+
+if [ $RESULT -eq 0 ]; then
+    git checkout $1
+else
+    echo -e "$1"
+    compare $2 $1 png:- | montage -geometry +4+4 -scale 600x $2 - $1 /tmp/image.png && yad --image=/tmp/image.png --title="Image changed" --center --text "The images are different.\nDo you want to revert this image?"
+    RESPONSE=$?
+    if [ $RESPONSE -eq 0 ]; then
+        echo "git checkout $1"
+        git checkout $1
+    fi
+fi

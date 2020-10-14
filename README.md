@@ -6,7 +6,7 @@ Files with customized colors and format to bash.
 
 Just type `source install.sh`
 
-The script will make:
+The script will do:
 
 1. Put the next files in your **home** folder:
 * customaliases -> .customaliases
@@ -14,8 +14,8 @@ The script will make:
 * dbash -> .dbash
 * dbashaliases -> .dbashaliases
 * dbashfunctions -> .dbashfunctions
-* bash_preexec -> .bash_preexec
-* dbashnotify -> .dbashnotify
+* git/gitattributes -> .gitattributes
+* git/git-imgdiff -> bin/git-imgdiff
 
 2. Add the next line at the end of **/home/user/.bashrc** file:
 
